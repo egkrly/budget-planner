@@ -1,4 +1,30 @@
+import styled from 'styled-components';
+
 import { Theme } from '../Theme';
+
+const HeaderElement = styled.header`
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    margin-top: 32px;
+    background-color: ${Theme.Header.BackgroundColor};
+`;
+
+const LogoSpan = styled.span`
+    font-weight: 100;
+    font-size: 32px;
+    color: ${Theme.Header.Logo.Color};
+`;
+
+const NavLink = styled.a`
+    font-size: 16px;
+    text-decoration: none;
+    margin-left: 22px;
+    font-weight: 300;
+    color: ${Theme.Header.Nav.NavItem.Color};
+`;
 
 const Header = () : any => {
     const navItems = [
@@ -7,35 +33,17 @@ const Header = () : any => {
     ];
 
     return (
-        <header style={{
-            height: '60px',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexDirection: 'row',
-            marginTop: '32px',
-            backgroundColor: Theme.Header.BackgroundColor
-        }}>
-            <span style={{
-                fontWeight: 100,
-                fontSize: '32px',
-                color: Theme.Header.Logo.Color
-            }}>B U D G E T</span>
+        <HeaderElement>
+            <LogoSpan>B U D G E T</LogoSpan>
             <nav>
-                {navItems.map(el => (
-                    <a
+                {navItems.map((el, i) => (
+                    <NavLink
                         href={el.url}
-                        style={{
-                            fontSize: '16px',
-                            textDecoration: 'none',
-                            marginLeft: '22px',
-                            fontWeight: 300,
-                            color: Theme.Header.Nav.NavItem.Color
-                        }}
-                    >{el.label}</a>
+                        key={i}
+                    >{el.label}</NavLink>
                 ))}
             </nav>
-        </header>
+        </HeaderElement>
     );
 }
 
