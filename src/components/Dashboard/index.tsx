@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 import undrawLogo from '../../assets/undraw_Analytics_re_dkf8.svg';
 import { user } from '../../mock/user';
+import { Trackbar } from '../Trackbar';
 
 const Container = styled.div`
     position: relative;
@@ -31,12 +32,26 @@ const WelcomeTitle = styled.h2`
     font-weight: 400;
 `;
 
+const TrackbarWrapper = ({children}) => <div style={{ width: '50%' }}>{children}</div>
+
+const TrackbarLabel = styled.span`
+    margin-top: 12px;
+    font-size: 14px;
+    color: #aaa;
+    display: block;
+    padding: 8px 0;
+`
+
 const Dashboard = (): any => {
     const firstName = user.fullName.split(' ')[0];
 
     return (
         <Container>
             <WelcomeTitle>Good to see you, {firstName}</WelcomeTitle>
+            <TrackbarLabel>Your progress to achieve your dreams:</TrackbarLabel>
+            <TrackbarWrapper>
+                <Trackbar progress={60} backgroundColor="#ddd" ></Trackbar>
+            </TrackbarWrapper>
         </Container>
     )
 }
