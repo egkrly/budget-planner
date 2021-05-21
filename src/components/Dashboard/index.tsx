@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 import undrawLogo from '../../assets/undraw_Analytics_re_dkf8.svg';
 import { user } from '../../mock/user';
-import { Trackbar } from '../Trackbar';
+import { Progressbar } from '../Progressbar/index';
 
 const Container = styled.div`
     position: relative;
@@ -32,9 +32,9 @@ const WelcomeTitle = styled.h2`
     font-weight: 400;
 `;
 
-const TrackbarWrapper = ({children}) => <div style={{ width: '50%' }}>{children}</div>
+const ProgressbarWrapper = ({children}) => <div style={{ width: '50%' }}>{children}</div>
 
-const TrackbarLabel = styled.span`
+const ProgressbarLabel = styled.span`
     margin-top: 12px;
     font-size: 14px;
     color: #aaa;
@@ -48,10 +48,10 @@ const Dashboard = (): any => {
     return (
         <Container>
             <WelcomeTitle>Good to see you, {firstName}</WelcomeTitle>
-            <TrackbarLabel>Your progress to achieve your dreams:</TrackbarLabel>
-            <TrackbarWrapper>
-                <Trackbar progress={60} backgroundColor="#ddd" ></Trackbar>
-            </TrackbarWrapper>
+            <ProgressbarLabel>Your progress to achieve your dreams:</ProgressbarLabel>
+            <ProgressbarWrapper>
+                <Progressbar progress={60} backgroundColor="#ddd" ></Progressbar>
+            </ProgressbarWrapper>
         </Container>
     )
 }

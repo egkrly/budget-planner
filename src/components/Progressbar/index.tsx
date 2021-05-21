@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
-const TrackbarElement = styled.div`
+const ProgressbarElement = styled.div`
     position: relative;
     overflow: hidden;
     display: block;
@@ -21,14 +21,14 @@ const TrackbarElement = styled.div`
     }
 `;
 
-interface TrackbarProps {
+interface ProgressbarProps {
     progress: number
     backgroundColor?: string
     progressColor?: string
     height?: string
 }
 
-const TrackbarDefaults = {
+const ProgressbarDefaults = {
     progress: 0,
     backgroundColor: '#EEE',
     progressColor: '#009DFF',
@@ -41,7 +41,7 @@ const TrackbarDefaults = {
  * @param props {Object} 
  * @returns 
  */
-const Trackbar: React.FC<TrackbarProps> = props => {
+const Progressbar: React.FC<ProgressbarProps> = props => {
     const maxValue = 100,
         minValue = 0,
         incrementVal = 10;
@@ -59,7 +59,7 @@ const Trackbar: React.FC<TrackbarProps> = props => {
 
     return (
         <React.Fragment>
-                <TrackbarElement
+                <ProgressbarElement
                     progress={progress}
                     backgroundColor={props.backgroundColor}
                     progressColor={props.progressColor}
@@ -71,7 +71,7 @@ const Trackbar: React.FC<TrackbarProps> = props => {
     );
 }
 
-Trackbar.defaultProps = TrackbarDefaults;
+Progressbar.defaultProps = ProgressbarDefaults;
 
 
-export { Trackbar }
+export { Progressbar }
